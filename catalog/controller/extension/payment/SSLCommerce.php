@@ -219,6 +219,12 @@ if($code == 200 && !( curl_errno($handle)))
 	$risk_title = $result->risk_title;
 	
 
+	$orderAmount_SITE = $this->currency->format($order_info['total'], $order_info['currency_code'], $order_info['currency_value'], false);
+	
+	if($amount < $orderAmount_SITE){
+		$risk_level==1;
+	}
+
                     if($status=='VALID')
                     {
                         if($risk_level==0){ $status = 'success';}
